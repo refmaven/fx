@@ -4,7 +4,7 @@ A Mindustry mod.
 
 ## Installation
 
-1. Go to the [releases page](https://github.com/[YOUR-USERNAME]/[YOUR-REPO]/releases) and download the latest `.jar`.
+1. Go to the [releases page](https://github.com/rhxwl/fx/releases) and download the latest `.jar`.
 2. Put it in your Mindustry mods folder, or use the in-game **Mods → Import Mod** button.
 3. Restart the game.
 
