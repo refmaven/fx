@@ -4,7 +4,7 @@ A Mindustry mod.
 
 ## Installation
 
-1. Go to the [releases page](https://github.com/rhxwl/fx/releases) and download the latest `.jar`.
+1. Go to the [releases page](https://github.com/refmaven/fx/releases) and download the latest `.jar`.
 2. Put it in your Mindustry mods folder, or use the in-game **Mods → Import Mod** button.
 3. Restart the game.
 
@@ -52,7 +52,7 @@ New source files should begin with this header:
 ```java
 /*
  * f(x): A Mindustry mod.
- * Copyright (C) 2026 rhxwl
+ * Copyright (C) 2026 refmaven
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
