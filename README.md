@@ -74,7 +74,7 @@ If you modify a file, add a short note near the top saying what you changed and 
 ## License
 
 f(x): A Mindustry mod.
-Copyright (C) 2026 rhxwl
+Copyright (C) 2026 refmaven
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
