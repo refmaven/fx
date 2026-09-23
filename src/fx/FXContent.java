@@ -61,7 +61,6 @@ public class FXContent {
         Items.scrap) {
       {
         inaccuracy = 7f;
-        rotateSpeed = 25f;
       }
     };
 
@@ -83,6 +82,7 @@ public class FXContent {
         shootCone = 15f;
         ammoUseEffect = Fx.casing1;
         health = 200;
+        rotateSpeed = 8f;
       }
     };
   }
