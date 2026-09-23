@@ -42,9 +42,9 @@ import mindustry.world.meta.*;
 import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
 
-public class FxContent {
-  public static int basicRange = 160;
-  public static float basicScrapSpeed = 8f;
+public class FXContent {
+  public static final int BASIC_RANGE = 160;
+  public static final float BASIC_SCRAP_SPEED = 8f;
   public static BulletType basicScrap;
   public static Block
   // turret
@@ -52,10 +52,10 @@ public class FxContent {
 
   public static void load() {
     basicScrap = new LazyBulletType(
-        basicScrapSpeed,
+        BASIC_SCRAP_SPEED,
         0.5f,
-        basicRange,
-        Items.scrap, 5, true) {
+        BASIC_RANGE,
+        Items.scrap) {
       {
         inaccuracy = 7f;
         rotateSpeed = 25f;
@@ -70,7 +70,7 @@ public class FxContent {
         shootSound = Sounds.shootDuo;
         shootY = 3f;
         reload = 10f;
-        range = basicRange;
+        range = BASIC_RANGE;
         shootCone = 15f;
         ammoUseEffect = Fx.casing1;
         health = 250;

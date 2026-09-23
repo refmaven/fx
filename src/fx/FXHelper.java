@@ -7,7 +7,7 @@ import mindustry.content.Items;
 import mindustry.graphics.Pal;
 import mindustry.type.Item;
 
-public class FxHelper {
+public class FXHelper {
 
     public static final ObjectMap<Item, Color> ammoBackColors = ObjectMap.of(
         Items.copper, Pal.copperAmmoBack,
