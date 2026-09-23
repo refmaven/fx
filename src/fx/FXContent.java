@@ -44,14 +44,16 @@ import static mindustry.type.ItemStack.*;
 
 public class FXContent {
   // fixed values
-  public static final int BASIC_RANGE = 160;
-  public static final float BASIC_SCRAP_SPEED = 8f, BASIC_COPPER_SPEED = 5f;
+  public static final int BASIC_RANGE = 160, TWOFOLD_RANGE = 220;
+  public static final float
+      BASIC_SCRAP_SPEED = 8f, BASIC_COPPER_SPEED = 5f,
+      TWOFOLD_COPPER_SPEED = 3.5f, TWOFOLD_LEAD_SPEED = 1.75f, TWOFOLD_SILICON_SPEED = 5.5f;
 
   // content
   public static BulletType basicScrap, basicCopper;
   public static Block
   // turret
-  basic;
+  basic, twofold;
 
   public static void load() {
     basicScrap = new LazyBulletType(
@@ -64,10 +66,7 @@ public class FXContent {
       }
     };
 
-    basicCopper = new LazyBulletType(BASIC_COPPER_SPEED, BASIC_RANGE, Items.copper) {
-      {
-        damage -= 2;
-      }
+    basicCopper = new LazyBulletType(BASIC_COPPER_SPEED, 2f, BASIC_RANGE, Items.copper) {
     };
     basic = new ItemTurret("basic") {
       {
@@ -75,14 +74,19 @@ public class FXContent {
         ammo(
             Items.scrap, basicScrap,
             Items.copper, basicCopper);
-        shootSound = Sounds.shootDuo;
+        shootSound = Sounds.shootAlpha;
         shootY = 3f;
         reload = 10f;
         range = BASIC_RANGE;
         shootCone = 15f;
-        ammoUseEffect = Fx.casing1;
         health = 200;
         rotateSpeed = 8f;
+      }
+    };
+
+    twofold = new ItemTurret("twofold") {
+      {
+        requirements(Category.turret, with(Items.copper, 56, Items.lead, 48, Items.graphite, 12));
       }
     };
   }
