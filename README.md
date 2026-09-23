@@ -34,26 +34,26 @@ for obvious reasons.
 To get a jar file that works on every platform:
 
 1. Push your changes to your GitHub repository.
-2. Check the "Actions" tab on your repository page.
+2. Check the **Actions** tab on your repository page.
    Select the most recent commit in the list.
 3. If the workflow completed successfully, there should be
-   a download link under the "Artifacts" section.
-4. Click the download link (it should be the name of your repo).
+   a download link under the **Artifacts** section.
+4. Click the download link. It should be the name of your repository.
 5. Import the jar contained within into Mindustry.
 
 This version should work on both Android and desktop.
 
 ## Building Locally
 
-Building locally takes more time to set up, but shouldn't be
-a problem if you've done Android development before.
+Building locally takes more time to set up, but should not be
+a problem if you have done Android development before.
 
 1. Download the Android SDK, unzip it, and set the `ANDROID_HOME`
    environment variable to its location.
 2. Make sure you have API level 30 installed, as well as a recent
-   version of the build tools (e.g. 30.0.1).
-3. Add a build-tools folder to your PATH. For example, if you have
-   `30.0.1` installed, that would be:
+   version of the build tools, such as `30.0.1`.
+3. Add a build-tools folder to your `PATH`. For example, if you
+   have `30.0.1` installed, that would be:
 
    `$ANDROID_HOME/build-tools/30.0.1`
 
@@ -83,55 +83,55 @@ code under the applicable license terms.
 
 Contributions are welcome!
 
-By submitting a contribution (pull request, patch, etc.), you agree
-that it will be licensed under the GNU General Public License
-version 3 or any later version, consistent with the licensing
-of the rest of the project.
+By submitting a contribution, such as a pull request or patch,
+you agree that your contribution may be distributed under the
+GNU General Public License version 3 or any later version,
+consistent with the licensing of the rest of the project.
 
-New source files should begin with this header:
+New source files should include a short license notice near
+the top of the file:
 
 ```java
 /*
  * f(x): A Mindustry mod.
  * Copyright (C) 2026 refmaven
  *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <https://www.gnu.org/licenses/>.
+ * Licensed under the GNU GPLv3 or later.
+ * See the LICENSE file in the project root for the full license text.
  */
 ```
 
-When distributing modified versions of code derived from Mindustry, ensure that prominent notices identify the modifications and give a relevant date.
+When distributing modified versions of code derived from Mindustry,
+ensure that prominent notices identify the modifications and give
+a relevant date.
 
-As a project convention, modified source files should also include a short note near the top describing the changes and when they were made.
+Original copyright and license notices in adapted code must be preserved.
 
-License
+As a project convention, modified source files should also include
+a short note near the top describing the changes and when they were made.
 
-f(x): A Mindustry mod.
+## License
 
-Copyright (C) 2026 refmaven
+f(x) is free software, licensed under the GNU General Public
+License version 3 or any later version.
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Copyright (C) 2026 refmaven.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+The full license text is available in the
+[`LICENSE`](LICENSE) file and at:
 
-The full license text is in the LICENSE file, and is also available at .
+<https://www.gnu.org/licenses/gpl-3.0.html>
 
-Unless otherwise stated, the source code in this repository is licensed under the GNU GPLv3 or later.
+Unless otherwise stated, source code in this repository is
+licensed under the GNU GPLv3 or later.
 
-Individual assets or third-party files may have separate applicable license terms, which are identified in their respective notices where applicable.
+Individual assets or third-party files may have separate
+applicable license terms. Where applicable, those terms are
+identified in their respective notices.
 
-Third-Party Notices
-Mindustry
+## Third-Party Notices
+
+### Mindustry
 
 f(x) incorporates and adapts code from Mindustry.
 
@@ -139,21 +139,30 @@ Mindustry is copyright Anuken and its contributors.
 
 Mindustry is licensed under the GNU General Public License version 3.
 
-Source: https://github.com/Anuken/Mindustry 
+Source:
 
-Mindustry Java Mod Template
+<https://github.com/Anuken/Mindustry>
 
-This project was initially based on the Mindustry Java Mod Template 
- by Anuken.
+### Mindustry Java Mod Template
 
-Modification Notices
+This project was initially based on the
+[Mindustry Java Mod Template](https://github.com/Anuken/MindustryJavaModTemplate)
+by Anuken.
 
-When distributing modified versions of code derived from Mindustry, ensure that prominent notices identify the modifications and give a relevant date.
+## Modification Notices
+
+When distributing modified versions of code derived from Mindustry,
+ensure that prominent notices identify the modifications and give
+a relevant date.
 
 Original copyright and license notices in adapted code must be preserved.
 
-Disclaimer
+## Disclaimer
 
-f(x) is an independent community project and is not affiliated with or endorsed by Anuken or the Mindustry development team.
+f(x) is an independent community project and is not affiliated
+with or endorsed by Anuken or the Mindustry development team.
 
-[1] On Linux/macOS, use ./gradlew instead of gradlew.
+---
+
+*[1]* On Windows, use `gradlew` or `gradlew.bat`.
+On Linux/macOS, use `./gradlew`.
