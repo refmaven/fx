@@ -43,9 +43,12 @@ import static mindustry.Vars.*;
 import static mindustry.type.ItemStack.*;
 
 public class FXContent {
+  // fixed values
   public static final int BASIC_RANGE = 160;
-  public static final float BASIC_SCRAP_SPEED = 8f;
-  public static BulletType basicScrap;
+  public static final float BASIC_SCRAP_SPEED = 8f, BASIC_COPPER_SPEED = 5f;
+
+  // content
+  public static BulletType basicScrap, basicCopper;
   public static Block
   // turret
   basic;
@@ -62,18 +65,24 @@ public class FXContent {
       }
     };
 
+    basicCopper = new LazyBulletType(BASIC_COPPER_SPEED, BASIC_RANGE, Items.copper) {
+      {
+        damage -= 2;
+      }
+    };
     basic = new ItemTurret("basic") {
       {
-        requirements(Category.turret, with(Items.copper, 35));
+        requirements(Category.turret, with(Items.copper, 18, Items.lead, 10));
         ammo(
-            Items.scrap, basicScrap);
+            Items.scrap, basicScrap,
+            Items.copper, basicCopper);
         shootSound = Sounds.shootDuo;
         shootY = 3f;
         reload = 10f;
         range = BASIC_RANGE;
         shootCone = 15f;
         ammoUseEffect = Fx.casing1;
-        health = 250;
+        health = 200;
       }
     };
   }
