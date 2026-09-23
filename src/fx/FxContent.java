@@ -44,7 +44,7 @@ import static mindustry.type.ItemStack.*;
 
 public class FxContent {
   public static int basicRange = 160;
-  public static float basicScrapSpeed = 5f;
+  public static float basicScrapSpeed = 8f;
   public static BulletType basicScrap;
   public static Block
   // turret
@@ -55,9 +55,10 @@ public class FxContent {
         basicScrapSpeed,
         0.5f,
         basicRange,
-        Items.scrap) {
+        Items.scrap, 5, true) {
       {
-        inaccuracy = 5f;
+        inaccuracy = 7f;
+        rotateSpeed = 25f;
       }
     };
 
@@ -68,12 +69,11 @@ public class FxContent {
             Items.scrap, basicScrap);
         shootSound = Sounds.shootDuo;
         shootY = 3f;
-        reload = 20f;
+        reload = 10f;
         range = basicRange;
         shootCone = 15f;
         ammoUseEffect = Fx.casing1;
         health = 250;
-        rotateSpeed = 10f;
       }
     };
   }
