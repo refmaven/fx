@@ -159,12 +159,3 @@ to apply to the relevant portions of the code.
 This notice describes the project's upstream code generally.
 It does not claim that every file in the repository is copied
 from or derived from Mindustry.
-
-## Disclaimer
-
-f(x) is an independent community project and is not affiliated
-with or endorsed by Anuken or the Mindustry development team.
-
----
-
-*[1]* On Linux/macOS, use `./gradlew` instead of `gradlew`.
