@@ -83,7 +83,7 @@ public class LazyBulletType extends BasicBulletType {
     }
 
     /**
-     * Creates a bullet with the default size of 5 and height ratio of 1.5.
+     * Creates a bullet with the default size of 2.75 and height ratio of 1.5.
      */
     public LazyBulletType(
         float speed,
@@ -91,7 +91,7 @@ public class LazyBulletType extends BasicBulletType {
         int range,
         Item item
     ){
-        this(speed, damage, range, item, 5f);
+        this(speed, damage, range, item, 2.75f);
     }
 
     /**
@@ -165,7 +165,7 @@ public class LazyBulletType extends BasicBulletType {
     }
 
     /**
-     * Creates an item-colored bullet with the default size of 5
+     * Creates an item-colored bullet with the default size of 2.75
      * and automatically calculated damage.
      */
     public LazyBulletType(
@@ -173,7 +173,7 @@ public class LazyBulletType extends BasicBulletType {
         int range,
         Item item
     ){
-        this(speed, range, item, 5f);
+        this(speed, range, item, 2.75f);
     }
 
     /**
