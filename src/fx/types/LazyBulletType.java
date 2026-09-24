@@ -71,7 +71,7 @@ public class LazyBulletType extends BasicBulletType {
     }
 
     /**
-     * Creates a bullet with the default height ratio of 1.5.
+     * Creates a bullet with the default height ratio.
      */
     public LazyBulletType(
         float speed,
@@ -84,7 +84,7 @@ public class LazyBulletType extends BasicBulletType {
     }
 
     /**
-     * Creates a bullet with the default size of 2.75 and height ratio of 1.5.
+     * Creates a bullet with the default size and height ratio.
      */
     public LazyBulletType(
         float speed,
@@ -113,7 +113,8 @@ public class LazyBulletType extends BasicBulletType {
      * Creates an item-colored bullet with automatically calculated damage.
      *
      * <p>Damage is calculated using:
-     * {@code item.cost * speed * DAMAGE_RATIO_CONSTANT}.</p>
+     * {@code item.cost * speed * DAMAGE_RATIO_CONSTANT}.
+     * in which DAMAGE_RATIO_CONSTANT is 7.2f. </p>
      *
      * @param speed bullet speed
      * @param range bullet range used to calculate lifetime

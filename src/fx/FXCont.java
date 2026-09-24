@@ -8,6 +8,8 @@ import mindustry.content.Fx;
 import mindustry.content.Items;
 import mindustry.content.Liquids;
 import mindustry.entities.bullet.BulletType;
+import mindustry.entities.pattern.ShootPattern;
+import mindustry.entities.pattern.ShootSpread;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -19,27 +21,51 @@ import mindustry.world.draw.DrawFlame;
 import mindustry.world.draw.DrawMulti;
 
 public class FXCont {
-  // \\//\\ CONSTANTS
+  // \\\\\\ CONSTANTS
   public static final int
   // \\ TURRET RANGES
-  BASIC_RANGE = 160, TWOFOLD_RANGE = 220;
+  // BASIC LINE
+  BASIC_RANGE = FXHelper.toWorldUnit(7), TWOFOLD_RANGE = FXHelper.toWorldUnit(15);
+  // FACTOR LINE
+
+  // SPREADER LINE
+
+  // EDIFICE LINE
+
   public static final float
   // \\ TURRET BULLET SPEED
-  BASIC_SCRAP_SPEED = 8f, BASIC_COPPER_SPEED = 5f,
-      TWOFOLD_COPPER_SPEED = 3.5f, TWOFOLD_LEAD_SPEED = 1.75f, TWOFOLD_SILICON_SPEED = 5.5f;
+  // BASIC
+  BASIC_SCRAP_SPEED = 8f, BASIC_COPPER_SPEED = 2f,
+  // TWOFOLD
+  TWOFOLD_COPPER_SPEED = 3.5f, TWOFOLD_LEAD_SPEED = 1.75f, TWOFOLD_SILICON_SPEED = 5.5f;
 
-  // \\//\\ CONTENT
+  // \\\\ CONTENT
   // \\ BULLET TYPES
-  public static BulletType basicScrap, basicCopper;
+  public static BulletType
+  // BASIC
+  basicScrap, basicCopper,
+      // TWOFOLD
+      twofoldCopper, twofoldGraphite, twofoldLead, twofoldSilicon, twofoldMetaglass;
+  // FACTOR
+
+  // RADIX
+
+  // EDIFICE
 
   // \\ BLOCKS
   public static Block
 
-  // PRODUCTION / CRAFTING
-  glassblower,
+  // POWER
+  slagPowerGenerator,
+
+      // PRODUCTION / CRAFTING
+      glassblower,
 
       // TURRETS
-      basic, twofold;
+      basic, twofold,
+      spreader,
+      factor, radix,
+      edifice;
 
   public static void load() {
 
@@ -48,7 +74,7 @@ public class FXCont {
         BASIC_SCRAP_SPEED,
         0.5f,
         BASIC_RANGE,
-        Items.scrap) {
+        Items.scrap, 6) {
       {
         inaccuracy = 7f;
       }
@@ -56,6 +82,8 @@ public class FXCont {
 
     basicCopper = new LazyBulletType(BASIC_COPPER_SPEED, 2f, BASIC_RANGE, Items.copper) {
     };
+
+    twofoldCopper = new LazyBulletType(TWOFOLD_COPPER_SPEED, 4f, TWOFOLD_RANGE, Items.copper, 6, 2);
     // \\ BULLET TYPES END
 
     // \\ BLOCKS START
@@ -74,7 +102,7 @@ public class FXCont {
         ambientSoundVolume = 0.06f;
 
         consumeItems(with(Items.lead, 1, Items.sand, 1));
-        consumeLiquid(Liquids.slag, 0.2f);
+        consumeLiquid(Liquids.slag, 0.225f);
       }
     };
     // PRODUCTION / CRAFTING END
@@ -104,12 +132,33 @@ public class FXCont {
             Items.scrap, basicScrap,
             Items.copper, basicCopper);
         shootSound = Sounds.shootAlpha;
-        shootY = 3f;
-        reload = 10f;
+        shootY = 5.5f;
+        reload = 45f;
         range = BASIC_RANGE;
         shootCone = 15f;
-        health = 200;
+        health = 800;
         rotateSpeed = 8f;
+        shoot = new ShootPattern(){{
+          shots = 2;
+        }};
+      }
+    };
+
+    spreader = new ItemTurret("spreader") {
+      {
+        requirements(Category.turret, with(Items.copper, 1));
+        size = 2;
+        ammo(
+            Items.scrap, basicScrap,
+            Items.copper, basicCopper);
+        shootSound = Sounds.shootAlpha;
+        shootY = 4f;
+        reload = 15f;
+        range = BASIC_RANGE;
+        shootCone = 8f;
+        health = 1000;
+        rotateSpeed = 1f;
+        shoot = ShootSpread.circle(8);
       }
     };
     // TURRETS END

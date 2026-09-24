@@ -8,6 +8,15 @@ import mindustry.graphics.Pal;
 import mindustry.type.Item;
 
 public class FXHelper {
+
+	public static final float toWorldUnit(float tile){
+		return tile * 8;
+	}
+
+	public static final int toWorldUnit(int tile){
+		return tile * 8;
+	}
+
 	public static final ObjectMap<Item, Color> ammoBackColors = ObjectMap.of(
 			Items.copper, Pal.copperAmmoBack,
 			Items.graphite, Pal.graphiteAmmoBack,
