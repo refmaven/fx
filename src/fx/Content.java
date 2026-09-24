@@ -20,7 +20,7 @@ import mindustry.world.draw.DrawDefault;
 import mindustry.world.draw.DrawFlame;
 import mindustry.world.draw.DrawMulti;
 
-public class FXCont{
+public class Content {
   
   public static final float toWorldUnit(float tile){
     return tile * 8;

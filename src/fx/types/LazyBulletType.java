@@ -23,7 +23,7 @@ import mindustry.type.Item;
  *
  * @author refmaven
  */
-public class LazyBulletType extends BasicBulletType{
+public class LazyBulletType extends BasicBulletType {
   private static final float
     DAMAGE_RATIO_CONSTANT = 7.2f,
     DEFAULT_BULLET_SIZE = 5f,
