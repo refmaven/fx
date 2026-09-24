@@ -1,10 +1,8 @@
 package fx.types;
 
 import arc.graphics.Color;
-import arc.struct.ObjectMap;
 import mindustry.content.Items;
 import mindustry.entities.bullet.BasicBulletType;
-import mindustry.graphics.Pal;
 import mindustry.type.Item;
 
 /**
