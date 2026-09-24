@@ -23,7 +23,8 @@ import mindustry.type.Item;
  */
 public class LazyBulletType extends BasicBulletType {
 
-    private static final float DAMAGE_RATIO_CONSTANT = 7.2f;
+    private static final float DAMAGE_RATIO_CONSTANT = 7.2f, DEFAULT_BULLET_SIZE = 5f, DEFAULT_BULLET_RATIO = 1.5f;
+    private static final String DEFAULT_BULLET_SPRITE_NAME = "bullet";
 
     /**
      * Creates a bullet with custom dimensions, sprite, item colors,
@@ -66,7 +67,7 @@ public class LazyBulletType extends BasicBulletType {
         float size,
         float ratio
     ){
-        this(speed, damage, range, item, size, ratio, null);
+        this(speed, damage, range, item, size, ratio, DEFAULT_BULLET_SPRITE_NAME);
     }
 
     /**
@@ -79,7 +80,7 @@ public class LazyBulletType extends BasicBulletType {
         Item item,
         float size
     ){
-        this(speed, damage, range, item, size, 1.5f);
+        this(speed, damage, range, item, size, DEFAULT_BULLET_RATIO);
     }
 
     /**
@@ -91,7 +92,7 @@ public class LazyBulletType extends BasicBulletType {
         int range,
         Item item
     ){
-        this(speed, damage, range, item, 2.75f);
+        this(speed, damage, range, item, DEFAULT_BULLET_SIZE);
     }
 
     /**
@@ -149,7 +150,7 @@ public class LazyBulletType extends BasicBulletType {
         float size,
         float ratio
     ){
-        this(speed, range, item, size, ratio, null);
+        this(speed, range, item, size, ratio, DEFAULT_BULLET_SPRITE_NAME);
     }
 
     /**
@@ -161,7 +162,7 @@ public class LazyBulletType extends BasicBulletType {
         Item item,
         float size
     ){
-        this(speed, range, item, size, 1.5f);
+        this(speed, range, item, size, DEFAULT_BULLET_RATIO);
     }
 
     /**
@@ -173,7 +174,7 @@ public class LazyBulletType extends BasicBulletType {
         int range,
         Item item
     ){
-        this(speed, range, item, 2.75f);
+        this(speed, range, item, DEFAULT_BULLET_SIZE);
     }
 
     /**
