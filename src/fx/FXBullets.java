@@ -4,7 +4,8 @@ import fx.types.LazyBulletType;
 import mindustry.content.Items;
 import mindustry.entities.bullet.BulletType;
 
-public class FXBulletTypes{
+public class FXBullets{
+    private FXBullets(){}
 
     public static BulletType
         rootSand,
@@ -19,31 +20,27 @@ public class FXBulletTypes{
         twofoldMetaglass,
         twofoldSilicon;
 
-    private FXBulletTypes(){
-        // utility class
-    }
-
     public static void load(){
         rootSand = new LazyBulletType(
-            FXConst.ROOT_BULLET_SPEED,
+            FXMath.nthBulletSpeed(1),
             FXConst.ROOT_RANGE,
             Items.sand
         );
 
         rootScrap = new LazyBulletType(
-            FXConst.ROOT_BULLET_SPEED,
+            FXMath.nthBulletSpeed(2),
             FXConst.ROOT_RANGE,
             Items.scrap
         );
 
         rootCopper = new LazyBulletType(
-            FXConst.ROOT_BULLET_SPEED,
+            FXMath.nthBulletSpeed(3),
             FXConst.ROOT_RANGE,
             Items.copper
         );
 
         basicScrap = new LazyBulletType(
-            FXConst.BASIC_BULLET_SPEED,
+            FXMath.nthBulletSpeed(4),
             FXConst.BASIC_RANGE,
             Items.scrap
         ){{
@@ -51,19 +48,19 @@ public class FXBulletTypes{
         }};
 
         basicCopper = new LazyBulletType(
-            FXConst.BASIC_BULLET_SPEED,
+            FXMath.nthBulletSpeed(5),
             FXConst.BASIC_RANGE,
             Items.copper
         );
 
         basicSilicon = new LazyBulletType(
-            FXConst.BASIC_BULLET_SPEED,
+            FXMath.nthBulletSpeed(6),
             FXConst.BASIC_RANGE,
             Items.silicon
         );
 
         twofoldCopper = new LazyBulletType(
-            FXConst.TWOFOLD_COPPER_SPEED,
+            FXMath.nthBulletSpeed(7),
             FXConst.TWOFOLD_RANGE,
             Items.copper,
             6f,
@@ -71,25 +68,25 @@ public class FXBulletTypes{
         );
 
         twofoldGraphite = new LazyBulletType(
-            FXConst.TWOFOLD_BULLET_SPEED,
+            FXMath.nthBulletSpeed(8),
             FXConst.TWOFOLD_RANGE,
             Items.graphite
         );
 
         twofoldLead = new LazyBulletType(
-            FXConst.TWOFOLD_LEAD_SPEED,
+            FXMath.nthBulletSpeed(9),
             FXConst.TWOFOLD_RANGE,
             Items.lead
         );
 
         twofoldMetaglass = new LazyBulletType(
-            FXConst.TWOFOLD_BULLET_SPEED,
+            FXMath.nthBulletSpeed(10),
             FXConst.TWOFOLD_RANGE,
             Items.metaglass
         );
 
         twofoldSilicon = new LazyBulletType(
-            FXConst.TWOFOLD_SILICON_SPEED,
+            FXMath.nthBulletSpeed(11),
             FXConst.TWOFOLD_RANGE,
             Items.silicon
         );

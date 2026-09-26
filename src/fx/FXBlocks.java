@@ -3,6 +3,7 @@ package fx;
 import static mindustry.type.Category.*;
 import static mindustry.type.ItemStack.with;
 
+import fx.types.LazyItemTurret;
 import mindustry.content.Items;
 import mindustry.entities.pattern.ShootPattern;
 import mindustry.entities.pattern.ShootSpread;
@@ -10,114 +11,80 @@ import mindustry.gen.Sounds;
 import mindustry.world.Block;
 import mindustry.world.blocks.defense.turrets.ItemTurret;
 
-public class FXBlocks{
+public class FXBlocks {
+    private FXBlocks() {
+    }
 
     public static Block
-        slagPowerGenerator,
-        largeSlagPowerGenerator,
-        glassblower,
-        largeGlassblower,
-        root,
-        basic,
-        twofold,
-        spreader,
-        factor,
-        edifice;
+    // crafting
+    glassblower,
+            largeGlassblower,
+            // turrets
+            root,
+            basic,
+            twofold,
+            spreader,
+            factor,
+            edifice;
 
-    private FXBlocks(){
-        // utility class
-    }
+    public static void load() {
 
-    public static void load(){
-        loadTurrets();
-    }
+        root = new LazyItemTurret("root",
+                FXMath.getNthRootLineRequirements(1),
+                FXConst.ROOT_RANGE,
+                Items.sand, FXBullets.rootSand,
+                Items.scrap, FXBullets.rootScrap,
+                Items.copper, FXBullets.rootCopper);
 
-    public static void loadTurrets(){
+        basic = new LazyItemTurret("basic",
+                FXMath.getNthRootLineRequirements(2),
+                FXConst.BASIC_RANGE,
+                Items.scrap, FXBullets.basicScrap,
+                Items.copper, FXBullets.basicCopper,
+                Items.silicon, FXBullets.basicSilicon);
 
-        root = new ItemTurret("root"){{
-            requirements(
-                turret,
-                FXMath.getNthRootLineRequirements(1)
-            );
+        twofold = new LazyItemTurret("twofold",
+                FXMath.getNthRootLineRequirements(3),
+                FXConst.TWOFOLD_RANGE,
+                Items.copper, FXBullets.twofoldCopper,
+                Items.graphite, FXBullets.twofoldGraphite,
+                Items.lead, FXBullets.twofoldLead,
+                Items.silicon, FXBullets.twofoldSilicon,
+                Items.metaglass, FXBullets.twofoldMetaglass) {
+            {
+                shoot = new ShootPattern() {
+                    {
+                        shots = 2;
+                    }
+                };
+                size = 2;
+                shootY = 5.5f;
+                reload = 45f;
+                scaledHealth = 200;
+            }
+        };
 
-            ammo(
-                Items.sand, FXBulletTypes.rootSand,
-                Items.scrap, FXBulletTypes.rootScrap,
-                Items.copper, FXBulletTypes.rootCopper
-            );
+        spreader = new ItemTurret("spreader") {
+            {
+                requirements(
+                        turret,
+                        with(Items.copper, 1));
 
-            range = FXConst.ROOT_RANGE;
-        }};
+                ammo(
+                        Items.scrap, FXBullets.basicScrap,
+                        Items.copper, FXBullets.basicCopper);
 
-        basic = new ItemTurret("basic"){{
-            requirements(
-                turret,
-                FXMath.getNthRootLineRequirements(2)
-            );
+                range = FXConst.SPREADER_RANGE;
+                shoot = ShootSpread.circle(8);
+                size = 2;
+                shootY = 4f;
+                shootSound = Sounds.shoot;
+                reload = 15f;
+                shootCone = 8f;
+                health = 1000;
+                rotateSpeed = 1f;
+            }
+        };
 
-            ammo(
-                Items.scrap, FXBulletTypes.basicScrap,
-                Items.copper, FXBulletTypes.basicCopper,
-                Items.silicon, FXBulletTypes.basicSilicon
-            );
-
-            range = FXConst.BASIC_RANGE;
-            shootSound = Sounds.shootAlpha;
-            shootY = 3f;
-            reload = 10f;
-            shootCone = 15f;
-            health = 200;
-            rotateSpeed = 8f;
-        }};
-
-        twofold = new ItemTurret("twofold"){{
-            requirements(
-                turret,
-                FXMath.getNthRootLineRequirements(3)
-            );
-
-            ammo(
-                Items.copper, FXBulletTypes.twofoldCopper,
-                Items.graphite, FXBulletTypes.twofoldGraphite,
-                Items.lead, FXBulletTypes.twofoldLead,
-                Items.silicon, FXBulletTypes.twofoldSilicon,
-                Items.metaglass, FXBulletTypes.twofoldMetaglass
-            );
-
-            range = FXConst.TWOFOLD_RANGE;
-
-            shoot = new ShootPattern(){{
-                shots = 2;
-            }};
-
-            size = 2;
-            shootY = 5.5f;
-            reload = 45f;
-            shootCone = 15f;
-            health = 800;
-            rotateSpeed = 8f;
-        }};
-
-        spreader = new ItemTurret("spreader"){{
-            requirements(
-                turret,
-                with(Items.copper, 1)
-            );
-
-            ammo(
-                Items.scrap, FXBulletTypes.basicScrap,
-                Items.copper, FXBulletTypes.basicCopper
-            );
-
-            range = FXConst.SPREADER_RANGE;
-            shoot = ShootSpread.circle(8);
-            size = 2;
-            shootY = 4f;
-            shootSound = Sounds.shoot;
-            reload = 15f;
-            shootCone = 8f;
-            health = 1000;
-            rotateSpeed = 1f;
-        }};
     }
 }

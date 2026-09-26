@@ -1,9 +1,9 @@
 package fx;
 
 public class Main extends mindustry.mod.Mod {
-  @Override
+  private Main(){}
   public void loadContent(){
     FXBlocks.load();
-    FXBulletTypes.load();
+    FXBullets.load();
   }
 }

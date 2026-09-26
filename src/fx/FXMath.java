@@ -4,10 +4,7 @@ import arc.struct.Seq;
 import mindustry.type.ItemStack;
 
 public class FXMath{
-
-    private FXMath(){
-        // utility class
-    }
+    private FXMath(){}
 
     public static ItemStack[] addItemStackArray(ItemStack[] a, ItemStack[] b){
         Seq<ItemStack> result = new Seq<>();
@@ -80,11 +77,27 @@ public class FXMath{
         );
     }
 
-    public static float nthBulletSpeed(int exponent){
-        return FXConst.BULLET_SPEED_STARTING_POINT *
-            (float)Math.pow(
-                FXConst.BULLET_SPEED_BASE,
-                exponent - 1
+    /**
+     * Returns the speed of the nth bullet in the global bullet progression.
+     *
+     * n = 1 is the first bullet.
+     *
+     * Speed increases quickly at first, then gradually approaches
+     * a practical upper limit.
+     */
+    public static float nthBulletSpeed(int n){
+        if(n < 1){
+            throw new IllegalArgumentException(
+                "Bullet index n must be at least 1."
             );
+        }
+
+        float progress =
+            1f - (float)Math.exp(
+                -(n - 1) * FXConst.BULLET_SPEED_GROWTH_RATE
+            );
+
+        return FXConst.BULLET_SPEED_STARTING_POINT
+            + FXConst.BULLET_SPEED_MAX_INCREASE * progress;
     }
 }
